@@ -577,6 +577,22 @@ class Kortez_Toolset_Hooks {
                 }
                 $demo_lists = get_transient( 'kortez_toolset_demo_lists' );
                 break;
+            case 'kortez-cafe':
+                $list_url = "https://gitlab.com/api/v4/projects/42840007/repository/files/kortez-cafe-demolist%2Ejson?ref=main";
+                while( empty( get_transient( 'kortez_toolset_demo_lists' ) ) ){
+                    $request_demo_list_body = wp_remote_retrieve_body( wp_remote_get( $list_url ) );
+                    if( is_wp_error( $request_demo_list_body ) ) {
+                        return false; // Bail early
+                    }
+                    $demo_list_std     = json_decode( $request_demo_list_body, true );
+                    $demo_list_array   = (array) $demo_list_std;
+                    $demo_list_content = $demo_list_array['content'];
+                    $demo_lists_json   = base64_decode( $demo_list_content );
+                    $demo_lists        = json_decode( $demo_lists_json, true );
+                    set_transient( 'kortez_toolset_demo_lists', $demo_lists, DAY_IN_SECONDS );
+                }
+                $demo_lists = get_transient( 'kortez_toolset_demo_lists' );
+                break;
             default:
                 $demo_lists = array();
                 break;
@@ -642,6 +658,7 @@ class Kortez_Toolset_Hooks {
             case 'kortez-auto':
             case 'kortez-corporate':
             case 'kortez-kindergarten':
+            case 'kortez-cafe':
                 /*attachments IDS*/
                 $attachment_ids = array(
                     'banner_image',

@@ -5,7 +5,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 Plugin Name: Kortez Toolset
 Plugin URI:  
 Description: A easy plugin to import dummy data for themes by Kortez Themes.
-Version:     1.1.2
+Version:     1.1.3
 Author:      Kortez Themes
 Author URI:  https://kortezthemes.com/
 License:     GPLv3 or later
@@ -36,6 +36,15 @@ function kortez_toolset_get_theme_screenshot(){
 	$demo_theme = wp_get_theme();
     return $demo_theme->get_screenshot();
 }
+
+function kortez_toolset_remove_template_import_submenu() {
+    remove_submenu_page(
+        'themes.php',          
+        'advanced-import-template'      
+    );
+}
+add_action( 'admin_menu', 'kortez_toolset_remove_template_import_submenu', 999 );
+
 /**
  * The core plugin class that is used to define internationalization,admin-specific hooks, 
  * and public-facing site hooks..
@@ -58,3 +67,28 @@ add_filter( 'admin_enqueue_scripts', array( $plugin_admin, 'enqueue_styles' ), 1
 add_filter( 'admin_enqueue_scripts', array( $plugin_admin, 'enqueue_scripts' ), 10, 1 );
 add_action( 'advanced_import_replace_term_ids', array( $plugin_admin, 'replace_term_ids' ), 20 );
 add_action( 'advanced_import_replace_post_ids', array( $plugin_admin, 'replace_attachment_ids' ), 30 );
+
+/**
+ * Hide Wpmet promotional notices
+ */
+
+add_action('admin_head', function () {
+    echo '<style>
+        .wpmet-notice,
+        .wpmet-banner,
+        .notice[class*="wpmet"],
+        div[class*="wpmet"] .notice {
+            display:none !important;
+        }
+    </style>';
+});
+
+add_action( 'admin_head', function () {
+    ?>
+    <style>
+        #e-conversion-banner {
+            display: none !important;
+        }
+    </style>
+    <?php
+} );

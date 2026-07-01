@@ -2,9 +2,9 @@
 Contributors: kortezthemes
 Tags: demo data, one click demo import, demo data importer
 Requires at least: 4.6
-Tested up to: 6.4
+Tested up to: 7.0
 Requires PHP: 4.6
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -42,6 +42,9 @@ https://pxhere.com/en/license [CCO License]
 Kortez Toolset
 
 == Changelog ==
+
+= 1.1.3 =
+* Compatibility for demo import of Kortez Cafe theme added.
 
 = 1.1.2 =
 * Compatibility for demo import of Kortez Kindergarten theme added.
