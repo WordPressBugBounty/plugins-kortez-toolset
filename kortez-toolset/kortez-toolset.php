@@ -5,7 +5,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 Plugin Name: Kortez Toolset
 Plugin URI:  
 Description: A easy plugin to import dummy data for themes by Kortez Themes.
-Version:     1.1.3
+Version:     1.1.4
 Author:      Kortez Themes
 Author URI:  https://kortezthemes.com/
 License:     GPLv3 or later

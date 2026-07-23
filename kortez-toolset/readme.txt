@@ -1,10 +1,10 @@
 === Kortez Toolset ===
 Contributors: kortezthemes
 Tags: demo data, one click demo import, demo data importer
-Requires at least: 4.6
+Requires at least: 6.0
 Tested up to: 7.0
-Requires PHP: 4.6
-Stable tag: 1.1.3
+Requires PHP: 7.0
+Stable tag: 1.1.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -42,6 +42,9 @@ https://pxhere.com/en/license [CCO License]
 Kortez Toolset
 
 == Changelog ==
+
+= 1.1.4 =
+* Compatibility for demo import of Kortez Dental Clinic theme added.
 
 = 1.1.3 =
 * Compatibility for demo import of Kortez Cafe theme added.
